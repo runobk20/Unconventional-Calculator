@@ -35,6 +35,15 @@ function writeLog(operationId, prevResult, operationNumber, newResult) {
 
 // All calculations together
 function calculateResult(calculationType) {
+    if (
+        calculationType !== 'add' &&
+        calculationType !== 'subtract' &&
+        calculationType !== 'multiply' &&
+        calculationType !== 'divide'
+    ) {
+        return;
+    }
+
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     let mathOperator;
