@@ -35,16 +35,18 @@ function writeLog(operationId, prevResult, operationNumber, newResult) {
 
 // All calculations together
 function calculateResult(calculationType) {
+    const enteredNumber = getUserNumberInput();
+
     if (
         calculationType !== 'add' &&
         calculationType !== 'subtract' &&
         calculationType !== 'multiply' &&
-        calculationType !== 'divide'
+        calculationType !== 'divide' ||
+        !enteredNumber
     ) {
         return;
     }
 
-    const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     let mathOperator;
     if (calculationType === 'add') {
